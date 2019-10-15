@@ -1,5 +1,5 @@
 .env
-vnev
+venv
 __pycache__
 static
 *.py[co]
