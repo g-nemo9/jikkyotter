@@ -5,3 +5,4 @@ static
 *.py[co]
 *.swp
 .DS_Store
+.idea

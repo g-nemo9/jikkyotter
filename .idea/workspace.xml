@@ -880,6 +880,9 @@
       <change beforePath="$PROJECT_DIR$/../flaskr2/venv/lib/python3.7/site-packages/setuptools-40.8.0-py3.7.egg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../flaskr2/venv/lib/python3.7/site-packages/setuptools.pth" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../flaskr2/venv/pyvenv.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myMONO" beforeDir="false" afterPath="$PROJECT_DIR$/../myMONO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mysite/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mysite/.idea/mysite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite/.idea/mysite.iml" afterDir="false" />
@@ -1625,8 +1628,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+            <state relative-caret-position="120">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -1686,7 +1689,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -1802,18 +1805,18 @@
       <workItem from="1570799773696" duration="27155000" />
       <workItem from="1570895301355" duration="588000" />
       <workItem from="1570914695502" duration="10383000" />
-      <workItem from="1571037116659" duration="13101000" />
+      <workItem from="1571037116659" duration="13930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56349000" />
+    <option name="totallyTimeSpent" value="57178000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49879518" visible="true" weight="0.15808298" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49879518" visible="true" weight="0.15808298" />
       <window_info id="Structure" order="1" sideWeight="0.50120485" side_tool="true" weight="0.15236051" />
       <window_info id="Favorites" order="2" sideWeight="0.50120485" side_tool="true" weight="0.15236051" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -1833,7 +1836,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="5" visible="true" weight="0.3304721" />
+      <window_info active="true" anchor="right" id="Terminal" order="5" visible="true" weight="0.34477827" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -2030,8 +2033,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
