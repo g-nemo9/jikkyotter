@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ twitter_user.name }}</h2>
+<h4>@{{ customuser.username }}</h4>
+<p><img src="{{ twitter_user.profile_image_url }}"></p>
+
+<h3>過去の実況</h3>
+{% for post in posts %}
+<div class="card col-md-8">
+  <div class="card-body">
+    <h4 class="card-title"><a href="{% url 'jikkyotter:post_detail' pk=post.id %}">{{ post.title }}</a></h4>
+    <h6 class="card-subtitle mb-2 text-muted">{{ post.start_at }}</h6>
+    <p class="card-text">
+      {{ post.comment }}
+    </p><a href="{% url 'jikkyotter:user_detail' pk=post.user.id %}">{{ post.user }}</a>
+      <div>{% for tag in post.tags.names %} <a href="{% url 'jikkyotter:post_tags' tag_name=tag %}">{{ tag }}</a> {% endfor %}</div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

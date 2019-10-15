@@ -1,0 +1,7 @@
+.env
+vnev
+__pycache__
+static
+*.py[co]
+*.swp
+.DS_Store
