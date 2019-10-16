@@ -14,7 +14,8 @@ import os
 import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = environ.Path(__file__) - 2
 
 
 # Quick-start development settings - unsuitable for production
@@ -147,5 +148,10 @@ ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 """Twitter API consumer key and secret"""
 env = environ.Env()
+READ_ENV_FILE = env.bool('DJANGO_READ_ENV_FILE', default=True)
+
+if READ_ENV_FILE:
+    env_file = str(BASE_DIR.path('.env'))
+    env.read_env(env_file)
 CONSUMER_KEY = env('CONSUMER_KEY')
 CONSUMER_KEY_SECRET = env('CONSUMER_KEY_SECRET')

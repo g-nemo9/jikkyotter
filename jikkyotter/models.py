@@ -25,8 +25,8 @@ class Post(models.Model):
     start_at = models.DateTimeField('開始日時', default=timezone.now)
     created_at = models.DateTimeField('作成日時', default=timezone.now)
     comment = models.TextField('コメント', max_length=140, null=True, blank=True)
-    user = models.ForeignKey(CustomUser, verbose_name='投稿', on_delete=models.PROTECT)
     tags = TaggableManager(blank=True)
+    user = models.ForeignKey(CustomUser, verbose_name='投稿', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.title

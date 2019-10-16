@@ -5,7 +5,11 @@
     <h4>{{ post.start_at }}</h4>
     <p>{{ post.comment }}</p>
     </p><a href="{% url 'jikkyotter:user_detail' pk=post.user.id %}">{{ post.user }}</a>
-    <div>{% for tag in post.tags.names %} <a href="{% url 'jikkyotter:post_tags' tag_name=tag %}">{{ tag }}</a> {% endfor %}</div>
+    <div>
+      {% for tag in post.tags.names %}
+          <a href="{% url 'jikkyotter:index' %}?tag={{ tag }}">{{ tag }}</a>
+      {% endfor %}
+    </div>
     <a class="btn btn-primary" href="https://twitter.com/intent/tweet?url={{ request.scheme }}://{{ request.get_host }}{% url 'jikkyotter:post_detail' post.pk %}&text=%20%23{{ post.title }}%20{{ post.start_time|date:"Y年m月j日H時i分" }}" target="_blank">
     ツイート
     </a>
