@@ -2,15 +2,36 @@ from django.views import generic
 from . import models
 from . import forms
 from jikkyotter import manage_twitter
+from django.db.models import Q
 import urllib.parse
-from django.core.paginator import Paginator
 
 
 class IndexView(generic.ListView):
     """トップページのビュー。投稿一覧のような感じ"""
     model = models.Post
     context_object_name = 'posts'
-    paginate_by = 2
+    # paginate_by = 2
+
+    def get_context_data(self, *, object_list=models.Post, **kwargs):
+        """SearchFormをテンプレートに渡す"""
+        context = super().get_context_data()
+        context['form'] = forms.SearchForm(self.request.GET)
+        return context
+
+    def get_queryset(self):
+        """フォームを利用してPostを検索"""
+        form = forms.SearchForm(self.request.GET)
+        form.is_valid()
+
+        queryset = super().get_queryset()
+        keyword = form.cleaned_data['keyword']
+        if keyword:
+            queryset = queryset.filter(Q(title__icontains=keyword) | Q(comment__icontains=keyword)
+                                       | Q(tags__name__icontains=keyword)).distinct()
+        tag = form.cleaned_data['tag']
+        if tag:
+            queryset = queryset.filter(tags__name=tag)
+        return queryset
 
 
 class CreatePost(generic.CreateView):
@@ -39,19 +60,4 @@ class UserDetail(generic.DetailView):
         context = super().get_context_data(**kwargs)
         context['twitter_user'] = manage_twitter.get_twitter_user_info(self.kwargs['pk'])
         context['posts'] = models.Post.objects.filter(user__pk=self.kwargs['pk'])
-        return context
-
-
-class TagList(generic.ListView):
-    """任意のタグを含んだ投稿一覧"""
-    model = models.Post
-    template_name = 'jikkyotter/tagged_post_list.html'
-    paginate_by = 1
-
-    def get_context_data(self, **kwargs):
-        """日本語タグをurlエンコードする"""
-        context = super().get_context_data(**kwargs)
-        tag_name = urllib.parse.unquote(self.kwargs['tag_name'])
-        context['posts'] = models.Post.objects.filter(
-            tags__name__in=tag_name.split()).order_by('-created_at')
         return context
