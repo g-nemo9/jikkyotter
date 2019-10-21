@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.twitter',
     'taggit',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +64,10 @@ ROOT_URLCONF = 'jikkyou_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth')
+        ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -155,3 +159,8 @@ if READ_ENV_FILE:
     env.read_env(env_file)
 CONSUMER_KEY = env('CONSUMER_KEY')
 CONSUMER_KEY_SECRET = env('CONSUMER_KEY_SECRET')
+
+# bootstrapのカスタムcss
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "assets"),
+# ]

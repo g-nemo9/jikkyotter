@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% get_providers as socialaccount_providers %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<h1>{% trans "Sign In" %}</h1>
+
+{% get_providers as socialaccount_providers %}
+
+<p>Twitterからログインしてください</p>
+
+<div class="socialaccount_ballot">
+
+{% include "socialaccount/snippets/provider_list.html" with process="login" %}
+
+</div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% endblock %}
