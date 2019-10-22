@@ -24,3 +24,18 @@ def get_twitter_user_info(pk):
     twitter_user = api.UsersLookup(screen_name=user.username)[0]
 
     return twitter_user
+
+
+def get_twitter_bigger_icon(pk):
+    twitter_user = get_twitter_user_info(pk)
+    nomal_url = twitter_user.profile_image_url_https
+    bigger_icon = nomal_url.replace('_normal.', '_bigger.')
+    return bigger_icon
+
+
+def get_twitter_mini_icon(pk):
+    twitter_user = get_twitter_user_info(pk)
+    nomal_url = twitter_user.profile_image_url_https
+    mini_icon = nomal_url.replace('_normal.', '_mini.')
+
+    return mini_icon
