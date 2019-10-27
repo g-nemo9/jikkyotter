@@ -91,10 +91,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'jikkyotter',
-        'USER': 'gaku',
-        'PASSWORD': '274167gaku',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
@@ -159,8 +159,3 @@ if READ_ENV_FILE:
     env.read_env(env_file)
 CONSUMER_KEY = env('CONSUMER_KEY')
 CONSUMER_KEY_SECRET = env('CONSUMER_KEY_SECRET')
-
-# bootstrapのカスタムcss
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "assets"),
-# ]
