@@ -2,17 +2,18 @@
 {% load bootstrap4 %}
 {% block content %}
 
-<h2>投稿一覧</h2>
+<h2 class="text-center">投稿一覧</h2>
 {% include 'jikkyotter/snippets/post_card_list.html' %}
 
 {# ページネーション #}
 {% include 'jikkyotter/snippets/page5.html' %}
 
-<h2>検索フォーム</h2>
+<h2 class="text-center">検索フォーム</h2>
 <form action="" method="GET">
   {% bootstrap_form form %}
-  {% buttons submit='検索' %}
-  {% endbuttons %}
+  <div class="text-center">
+    <button type="submit" class="btn btn-info mb-5">検索</button>
+  </div>
 </form>
 
 {% endblock %}

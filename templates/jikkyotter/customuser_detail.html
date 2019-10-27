@@ -10,6 +10,6 @@
 <h3>最近の実況</h3>
 {% include 'jikkyotter/snippets/post_card_list.html' %}
 
-<a href="{% url 'jikkyotter:user_posts' pk=customuser.id %}"> >>投稿一覧</a>
+<button class="btn btn-info my-3" onclick="location.href='{% url 'jikkyotter:user_posts' pk=customuser.id %}'">投稿一覧</button>
 
 {% endblock %}

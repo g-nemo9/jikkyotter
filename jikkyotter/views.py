@@ -12,6 +12,7 @@ class PostList(generic.ListView):
     model = models.Post
     context_object_name = 'posts'
     paginate_by = 5
+    ordering = ['-start_at']
 
     def get_context_data(self, *, object_list=models.Post, **kwargs):
         """SearchFormをテンプレートに渡す"""
@@ -69,7 +70,7 @@ class UserDetail(generic.DetailView):
 class UserPostList(generic.ListView):
     model = models.Post
     context_object_name = 'posts'
-    paginate_by = 5
+    paginate_by = 3
     template_name = 'jikkyotter/user_post_list.html'
 
     def get_queryset(self):
