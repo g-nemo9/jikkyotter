@@ -90,9 +90,9 @@ WSGI_APPLICATION = 'jikkyou_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'jikkyotter',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'NAME': 'mysite',
+        'USER': 'mysiteuser',
+        'PASSWORD': '274167gaku',
         'HOST': 'localhost',
         'PORT': '5432',
     }
