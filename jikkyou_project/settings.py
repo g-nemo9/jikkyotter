@@ -22,7 +22,13 @@ BASE_DIR = environ.Path(__file__) - 2
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ehw9za9kpi47)jt2z2sq%u65w+8vk+-(apk!o7!&$vceczyjjw'
+env = environ.Env()
+READ_ENV_FILE = env.bool('DJANGO_READ_ENV_FILE', default=True)
+
+if READ_ENV_FILE:
+    env_file = str(BASE_DIR.path('.env'))
+    env.read_env(env_file)
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,15 +94,9 @@ WSGI_APPLICATION = 'jikkyou_project.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mysite',
-        'USER': 'mysiteuser',
-        'PASSWORD': '274167gaku',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': env.db()
 }
+DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 
 # Password validation
@@ -151,11 +151,5 @@ LOGIN_REDIRECT_URL = 'jikkyotter:index'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 """Twitter API consumer key and secret"""
-env = environ.Env()
-READ_ENV_FILE = env.bool('DJANGO_READ_ENV_FILE', default=True)
-
-if READ_ENV_FILE:
-    env_file = str(BASE_DIR.path('.env'))
-    env.read_env(env_file)
 CONSUMER_KEY = env('CONSUMER_KEY')
 CONSUMER_KEY_SECRET = env('CONSUMER_KEY_SECRET')
