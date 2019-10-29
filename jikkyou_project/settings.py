@@ -33,7 +33,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['118.27.4.185']
+ALLOWED_HOSTS = ['118.27.4.185', 'jikkyotter.gusto17.tokyo']
 
 
 # Application definition
