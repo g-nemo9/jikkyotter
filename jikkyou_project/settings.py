@@ -15,7 +15,7 @@ import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = environ.Path(__file__) - 2
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_NAME = os.path.basename(BASE_DIR)
 
 
@@ -24,11 +24,7 @@ PROJECT_NAME = os.path.basename(BASE_DIR)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 env = environ.Env()
-READ_ENV_FILE = env.bool('DJANGO_READ_ENV_FILE', default=True)
-
-if READ_ENV_FILE:
-    env_file = str(BASE_DIR.path('.env'))
-    env.read_env(env_file)
+env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
