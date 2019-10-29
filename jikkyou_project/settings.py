@@ -15,7 +15,8 @@ import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = environ.Path(__file__) - 2
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_NAME = os.path.basename(BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,17 +24,13 @@ BASE_DIR = environ.Path(__file__) - 2
 
 # SECURITY WARNING: keep the secret key used in production secret!
 env = environ.Env()
-READ_ENV_FILE = env.bool('DJANGO_READ_ENV_FILE', default=True)
-
-if READ_ENV_FILE:
-    env_file = str(BASE_DIR.path('.env'))
-    env.read_env(env_file)
+env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['118.27.4.185', 'jikkyotter.gusto17.tokyo']
+ALLOWED_HOSTS = ['127.0.0.1', 'jikkyotter.gusto17.tokyo']
 
 
 # Application definition
@@ -136,7 +133,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = '/var/www/{}/static'.format(PROJECT_NAME)
 
 ##################
 # Authentication #
