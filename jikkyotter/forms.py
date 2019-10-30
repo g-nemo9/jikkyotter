@@ -5,13 +5,13 @@ import bootstrap_datepicker_plus as datetimepicker
 
 class PostForm(forms.ModelForm):
     """新規投稿のモデルフォーム"""
+
     class Meta:
         model = Post
         fields = ('title', 'start_at', 'comment', 'tags')
         widgets = {
-            """bootstrap_datepicker_plusの設定"""
             'start_at': datetimepicker.DateTimePickerInput(
-                format='%Y-%m-%d %H:%M',
+                format='%Y-%m-%d %H:%M:%S',
                 options={
                     'locale': 'ja',
                     'dayViewHeaderFormat': 'YYYY年 MMMM',

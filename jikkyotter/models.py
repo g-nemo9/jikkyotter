@@ -22,7 +22,7 @@ class Post(models.Model):
         db_table = 'post'
 
     title = models.CharField('タイトル', max_length=140)
-    start_at = models.DateTimeField('開始日時', default=timezone.now)
+    start_at = models.DateTimeField('開始日時')
     created_at = models.DateTimeField('作成日時', default=timezone.now)
     comment = models.TextField('コメント', max_length=140, null=True, blank=True)
     tags = TaggableManager(blank=True)
