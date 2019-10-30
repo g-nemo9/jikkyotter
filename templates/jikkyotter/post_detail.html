@@ -12,8 +12,9 @@
           <a href="{% url 'jikkyotter:index' %}?tag={{ tag }}">{{ tag }}</a>
       {% endfor %}
     </div>
-    <a class="btn btn-primary mt-3" href="https://twitter.com/intent/tweet?url={{ request.scheme }}://{{ request.get_host }}{% url 'jikkyotter:post_detail' post.pk %}&text=%20%23{{ post.title }}%20{{ post.start_time|date:"Y年m月j日H時i分" }}" target="_blank">
+    <a class="btn btn-primary mt-3" href="https://twitter.com/intent/tweet?url={{ request.scheme }}://{{ request.get_host }}{% url 'jikkyotter:post_detail' post.pk %}&text=%20%23{{ post.title }}%0a{{ post.comment|linebreaksbr }}%0a{{ post.start_at|date:"Y年m月j日H時i分" }}から" target="_blank">
     ツイート
     </a>
+{#    <a class="btn btn-primary" href="https://twitter.com/intent/tweet?url={{ request.scheme }}://{{ request.get_host }}{% url 'app:detail' post.pk %}&text={{ post.comment }}&hashtags=いつでもエア実況_{{ post.title }}_{{ post.episode }}話_{{ post.start_time|date:"Y年m月j日H時i分" }}から" target="_blank">#}
   </div>
 {% endblock %}
