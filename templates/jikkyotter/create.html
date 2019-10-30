@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
 
+{% block extrahead %}
+{{ form.media }}
+{% endblock %}
+
 {% block content %}
   <div class="text-center">
     <h2>実況作成</h2>
