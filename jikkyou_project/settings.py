@@ -18,22 +18,19 @@ import environ
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_NAME = os.path.basename(BASE_DIR)
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 env = environ.Env()
-READ_ENV_FILE = env.bool('DJANGO_READ_ENV_FILE', default=True)
-
-if READ_ENV_FILE:
-    env_file = str(BASE_DIR.path('.env'))
-    env.read_env(env_file)
+env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 
-ALLOWED_HOSTS = ['118.27.4.185', 'jikkyotter.gusto17.tokyo']
+ALLOWED_HOSTS = ['127.0.0.1', 'jikkyotter.gusto17.tokyo']
 
 
 # Application definition
