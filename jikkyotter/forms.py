@@ -1,13 +1,14 @@
 from django import forms
 from .models import Post
 from django.utils import timezone
+from django.utils.timezone import localtime
 
 
 class PostForm(forms.ModelForm):
     """新規投稿のモデルフォーム"""
     start_at = forms.DateTimeField(
         label='開始時刻',
-        widget=forms.DateTimeInput(attrs={"type": "datetime-local", "value": timezone.now().strftime('%Y-%m-%dT%H:%M')}),
+        widget=forms.DateTimeInput(attrs={"type": "datetime-local", "value": localtime(timezone.now()).strftime('%Y-%m-%dT%H:%M')}),
         input_formats=['%Y-%m-%dT%H:%M']
     )
 
