@@ -12,9 +12,12 @@ class PostForm(forms.ModelForm):
         widgets = {
             'start_at': datetimepicker.DateTimePickerInput(
                 format='%Y-%m-%d %H:%M:%S',
+                attrs={'readonly': 'true'},
                 options={
                     'locale': 'ja',
                     'dayViewHeaderFormat': 'YYYY年 MMMM',
+                    'ignoreReadonly': True,
+                    'allowInputToggle': True,
                 }
             )
         }
