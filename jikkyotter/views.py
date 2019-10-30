@@ -82,3 +82,7 @@ class UserPostList(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['twitter_user'] = manage_twitter.get_twitter_user_info(self.kwargs['pk'])
         return context
+
+
+class AboutView(generic.TemplateView):
+    template_name = 'jikkyotter/about.html'
