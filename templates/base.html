@@ -7,6 +7,7 @@
     {% load bootstrap4 %}
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
+    {{ form.media }}
     <title>実況ったー</title>
   </head>
   <body>
@@ -19,7 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'jikkyotter:about' %}">アバウト</a>
+            <a class="nav-link" href="{% url 'jikkyotter:about' %}">実況ったーとは</a></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'jikkyotter:post_create' %}">新規作成</a>
